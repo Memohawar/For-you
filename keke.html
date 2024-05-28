@@ -1,0 +1,67 @@
+keke
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ERROR</title>
+<style>
+    body {
+        background-color: black;
+        text-align: center;
+        margin: 0;
+        color: white;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ff5733;
+        color: white;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        margin-bottom: 20px;
+    }
+    button:hover {
+        background-color: #ff8c66;
+    }
+    .heart {
+        color: red;
+        font-size: 40px;
+        position: absolute;
+        animation: fly 5s linear infinite;
+    }
+    
+    @keyframes fly {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-100vh);
+        }
+    }
+</style>
+</head>
+<body>
+
+<button onclick="generateHearts()">Click</button>
+
+<script>
+    function generateHearts() {
+        for (let i = 0; i < 50; i++) {
+            const heart = document.createElement("div");
+            heart.innerHTML = "&#10084;";
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = Math.random() * window.innerHeight + "px";
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+    }
+</script>
+
+</body>
+</html>
